@@ -16,7 +16,7 @@ public class BoardManager : MonoBehaviour {
 	}
 
 	public int columns = 8;
-	public int rows = 8;
+	private int rows = 8;
 	public Count wallCount = new Count (5,9);
 	public Count foodCount = new Count (1,5);
 	public GameObject exit;
@@ -43,7 +43,7 @@ public class BoardManager : MonoBehaviour {
 		boardHolder = new GameObject ("Board").transform;
 
 		for (int x = -1; x < columns + 1; x++) {
-			for (int y = 1; y < rows + 1; y++) {
+			for (int y = -1; y < rows + 1; y++) {
 				GameObject toInstantiate = floorTiles [Random.Range (0, floorTiles.Length)];
 				if (x == -1 || x == columns || y == -1 || y == rows)
 					toInstantiate = outerWallTiles[Random.Range (0, outerWallTiles.Length)];
